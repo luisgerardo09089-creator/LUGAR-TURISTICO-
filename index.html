@@ -1,0 +1,457 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps Móviles</title>
+    <style>
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html{
+          scroll-behavior:smooth;
+        }
+
+        body{
+          background: #1e1e1e;
+          color: #222;
+        }
+
+        .header{
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: linear-gradient(135deg, #e34f26, #f16529);
+          color: white;
+          padding: 18px 20px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        }
+
+        .logo{
+          display:flex;
+          align-items:center;
+          gap:15px;
+          margin-bottom:15px;
+        }
+
+        .logo img{
+          width:60px;
+          height:60px;
+          object-fit:contain;
+          background:white;
+          border-radius:14px;
+          padding:8px;
+        }
+
+        .logo h1{
+          font-size:2rem;
+        }
+
+        .logo p{
+          font-size:0.95rem;
+        }
+
+        .nav{
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+        }
+
+        .nav a{
+          text-decoration:none;
+          color:white;
+          background: rgba(255,255,255,0.15);
+          padding:10px 14px;
+          border-radius:12px;
+          font-weight:bold;
+          transition:0.3s;
+        }
+
+        .nav a:hover{
+          background: rgba(255,255,255,0.28);
+        }
+
+        .hero{
+          min-height:90vh;
+          display:grid;
+          grid-template-columns: 1fr 1fr;
+          align-items:center;
+          gap:30px;
+          padding:50px 25px;
+          background: linear-gradient(135deg, #fff3ef, #ffffff);
+        }
+
+        .hero-texto h2{
+          font-size:3rem;
+          color:#e34f26;
+          margin-bottom:15px;
+        }
+
+        .hero-texto p{
+          line-height:1.7;
+          font-size:1.05rem;
+          margin-bottom:20px;
+          color:#333;
+        }
+
+        .badge{
+          display:inline-block;
+          background:#e34f26;
+          color:white;
+          padding:8px 14px;
+          border-radius:999px;
+          margin-bottom:15px;
+          font-weight:bold;
+        }
+
+        .btn{
+          display:inline-block;
+          text-decoration:none;
+          background:#2d2d2d;
+          color:white;
+          padding:12px 20px;
+          border-radius:12px;
+          font-weight:bold;
+        }
+
+        .hero-imagen{
+          display:flex;
+          justify-content:center;
+        }
+
+        .hero-imagen img{
+          width:100%;
+          max-width:300px;
+          object-fit:contain;
+        }
+
+        .seccion{
+          padding:50px 25px;
+          background:#f7f7f7;
+          border-top:1px solid #ddd;
+        }
+
+        .card{
+          max-width:1000px;
+          margin:auto;
+          background:white;
+          border-radius:22px;
+          padding:25px;
+          box-shadow:0 8px 20px rgba(0,0,0,0.08);
+          border-left:8px solid #e34f26;
+        }
+
+        .card h2{
+          color:#e34f26;
+          margin-bottom:15px;
+          font-size:2rem;
+        }
+
+        .card h3{
+          color:#e34f26;
+          margin-bottom:10px;
+        }
+
+        .card p,
+        .card li{
+          line-height:1.7;
+          color:#333;
+        }
+
+        .card img{
+          width:100%;
+          max-width:260px;
+          display:block;
+          margin:15px auto;
+        }
+
+        .codigo{
+          background:#1f1f1f;
+          color:white;
+          padding:18px;
+          border-radius:14px;
+          margin:18px 0;
+          font-family: Consolas, monospace;
+          white-space: pre-line;
+          overflow:auto;
+        }
+
+        .grid{
+          display:grid;
+          grid-template-columns: 1fr 1fr;
+          gap:15px;
+          margin-top:20px;
+        }
+
+        .mini-card{
+          background:#fff7f3;
+          border:1px solid #f1c3b5;
+          border-radius:16px;
+          padding:18px;
+        }
+
+        .demo-form{
+          display:grid;
+          gap:12px;
+          margin-top:20px;
+        }
+
+        .demo-form label{
+          font-weight:bold;
+          color:#333;
+        }
+
+        .demo-form input,
+        .demo-form textarea{
+          width:100%;
+          padding:12px;
+          border:1px solid #ccc;
+          border-radius:12px;
+        }
+
+        .demo-form button{
+          border:none;
+          background:#e34f26;
+          color:white;
+          padding:12px;
+          border-radius:12px;
+          font-weight:bold;
+          cursor:pointer;
+        }
+
+        .footer{
+          background:#2d2d2d;
+          color:white;
+          text-align:center;
+          padding:18px;
+          font-weight:bold;
+        }
+
+        @media (max-width: 900px){
+          .hero{
+            grid-template-columns:1fr;
+            text-align:center;
+          }
+
+          .grid{
+            grid-template-columns:1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="img/IMAGEN TOLUCA.jpeg" alt="Logo Apps Móviles">
+        <div>
+            <h1>Turismo en Toluca </h1>
+            <p>Conoce mas de Toluca</p>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#Informacion-del-lugar">Informacon del lugar</a>
+        <a href="#lLugares-turisticos">lugares turisticos</a>
+        <a href="#Gastronomia">Gastronomia</a>
+        <a href="#Galeria">galeria</a>
+        <a href="#conclusion">Conclusión</a>
+    </nav>
+</header>
+
+<main>
+
+    <section id="inicio" class="hero">
+        <div class="hero-texto">
+            <span class="badge">TURISMO</span>
+            <h2>LUGARES TURISTICOS EN TOLUCA </h2>
+            <p>
+                Toluca, conocida como Toluca de Lerdo, tiene más de cinco mil años de historia, 
+                desde los asentamientos matlatzincas hasta convertirse en la capital del Estado de México.
+            </p>
+            <a href="#que-es" class="btn">Comenzar</a>
+        </div>
+
+        <div class="hero-imagen">
+            <img src="img/TOLUCA.webp" alt="Dispositivo móvil">
+        </div>
+    </section>
+
+    <section id="Informacion-del-lugar" class="seccion">
+        <article class="card">
+            <h2>Informacion del lugar</h2>
+            <img src="img/historia1.jpeg" alt="Aplicación móvil">
+            <p>
+               Orígenes prehispánicos
+                Los primeros rastros humanos en el Valle del Matlazinco datan aproximadamente del 1200 a.C., con asentamientos de los matlatzincas, una cultura 
+                indígena que aprovechó la fertilidad del valle y su ubicación estratégica para establecer comunidades agrícolas y ceremoniales. El Cerro del Toloche, 
+                al norte de la ciudad, dio origen al nombre Toluca, derivado del náhuatl Tolocan, que significa “En donde está el Dios Tolo, el inclinado de cabeza”
+            </p>
+        </article>
+    </section>
+
+    <section id="caracteristicas" class="seccion">
+        <article class="card">
+            <h2>Características principales</h2>
+            <img src="img/caracteristicas.png" alt="Características">
+            <p>
+                <strong>• </strong> Orígenes: Toluca fue poblada por los matlatzincas en el siglo VII y posteriormente se convirtió en un importante centro ceremonial. 
+                Durante la conquista española, fue reconocida como Toluca de San José.<br>
+                <strong>• </strong> Eventos Culturales: La ciudad celebra diversas festividades, como la Feria del Alfeñique, que coincide con el Día de Muertos, 
+                y cuenta con una oferta cultural activa que incluye museos y centros culturales..<br>
+                <strong>• </strong> Agricultura: A pesar de su urbanización, en los alrededores de Toluca se cultivan productos como maíz, frijol y chile, lo que refleja su herencia agrícola. <br>
+                <strong>• </strong> Ubicación: Toluca se encuentra a aproximadamente 64 kilómetros al oeste de la Ciudad de México, en un valle a 2,600 metros sobre el nivel del mar, 
+                lo que la convierte en la ciudad capital más alta de México y de América del Norte. <br>
+                
+            </p>
+        </article>
+    </section>
+
+    <section id="lLugares-turisticos" class="seccion">
+        <article class="card">
+            <h2>Lugares turisticos</h2>
+            <img src="img/NEVADO DE TOLUCA.jpeg" alt="Tipos de apps">
+            <div class="grid">
+                <div class="mini-card">
+                    <h3> Cosmovitral Jardín Botánico</h3>
+                    <p> Vitral monumental de 3,000 m² en un antiguo mercado art nouveau. De los más grandes del mundo.</p>
+                </div>
+                <div class="mini-card">
+                    <h3> Nevado de Toluca / Xinantécatl</h3>
+                    <p> Volcán a 4,680 msnm con las lagunas del Sol y la Luna en el cráter.</p>
+                </div>
+                <div class="mini-card">
+                    <h3> Portales de Toluca y Catedral de San José</h3>
+                    <p>120 arcos de 170 m, los más largos de México. La Catedral es neoclásica del s. XIX.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Museo de Bellas Artes de Toluca</h3>
+                    <p> Exconvento carmelita del s. XVIII convertido en museo.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Parque Sierra Morelos</h3>
+                    <p>Área natural protegida de 302 hectáreas al norte de la ciudad</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Museo del Alfeñique</h3>
+                    <p>Museo dedicado al arte del alfeñique y la tradición de Día de Muertos en Toluca.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="Gastronomia" class="seccion">
+        <article class="card">
+            <h2>Gastronomia</h2>
+            <img src="img/CHORIZO.webp" alt="Plataformas">
+            <div class="grid">
+                <div class="mini-card">
+                    <h3>Chorizo verde de Toluca</h3>
+                    <p> El más famoso. Chorizo hecho con carne de cerdo, chile, cilantro, espinaca y hierbas que le dan el color verde.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Tacos de obispo</h3>
+                    <p>Embutido hecho con sesos, corazón e hígado de cerdo, condimentado y embutido en tripa. Suena fuerte pero es tradición.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Tortas de chorizo</h3>
+                    <p>Telera rellena de chorizo rojo o verde bien dorado, con crema, queso, aguacate y chiles en vinagre</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Moscos</h3>
+                    <p> No es comida, pero es la bebida típica. Licor de naranja de ∼45° de alcohol, servido en vasitos chiquitos.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Garapiñados</h3>
+                    <p> Cacahuates o semillas caramelizadas con azúcar. Tradición desde el s. XIX.</p>
+                </div>
+                <div class="mini-card">
+                    <h3>Huarache toluqueño</h3>
+                    <p>Base de masa gruesa ovalada, frita, con frijoles, nopales, salsa, queso, cebolla y tu elección de carne. Lleva chorizo, bistec o obispo</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="Galeria" class="seccion">
+        <article class="card">
+            <h2>Galeria</h2>
+            <img src="img/CATEDRAL.webp" alt="Proceso">
+             <img src="img/MUSEO.webp" alt="Proceso">
+             <img src="img/CHICHARRONES.webp" alt="Proceso">
+             <img src="img/CTOLUCA.webp" alt="Proceso">
+           
+        </article>
+    </section>
+
+   
+    </section>
+
+    <section id="conclusion" class="seccion">
+        <article class="card">
+            <h2>Conclusión</h2>
+            <p>
+                Toluca es una ciudad de contrastes. No es destino turístico de postal, pero sí es una capital con identidad propia muy marcada.
+            </p>
+            <p><strong>Alumno:</strong> [EDWIN MARTINEZ VENEGAS]</p>
+            <p><strong>Materia:</strong> Desarrollo de Aplicaciones Móviles</p<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chichén Itzá</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+    <h1>Chichén Itzá</h1>
+    <nav>
+        <ul>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#atractivos">Atractivos</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Una maravilla del mundo</h2>
+</section>
+
+<section id="historia">
+    <h2>Historia</h2>
+    <p>
+        Chichén Itzá fue una de las principales ciudades de la civilización maya,
+        destacando por su arquitectura y avances astronómicos.
+    </p>
+</section>
+
+<section id="atractivos">
+    <h2>Atractivos principales</h2>
+    <ul>
+        <li>El Castillo (Pirámide de Kukulkán)</li>
+        <li>El Juego de Pelota</li>
+        <li>El Cenote Sagrado</li>
+    </ul>
+</section>
+
+<section id="ubicacion">
+    <h2>Ubicación</h2>
+    <p>Se encuentra en Yucatán, México.</p>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%" height="300" style="border:0;" allowfullscreen="">
+    </iframe>
+</section>
+
+<footer>
+    <p>© 2026 Sitio turístico - Proyecto escolar</p>
+</footer>
+
+</body>
+</html>
